@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Countdown</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #fce4ec;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .profile {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+            border: 3px solid #f06292;
+        }
+        .question {
+            background: #f06292;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .countdown {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #e91e63;
+            gap: 15px;
+        }
+        .timer div {
+            text-align: center;
+        }
+        .button {
+            margin-top: 20px;
+            background: #f06292;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .button:active {
+            background: #e91e63;
+        }
+        .hearts {
+            margin-top: 15px;
+            font-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Happy Valentine's Day</h2>
+    <img src="c:\Users\HP win10\Downloads\476578812_633315339058466_4639016748774647588_n.jpg" class="profile" alt="Profile">
+    <div class="question">How long have we been together? ❤️</div>
+    
+    <div class="countdown">
+        <span id="years">0</span> YEARS <span id="months">0</span> MONTHS
+    </div>
+    
+    <div class="timer">
+        <div><span id="days">0</span><br>Days</div>
+        <div><span id="hours">0</span><br>Hrs</div>
+        <div><span id="minutes">0</span><br>Mins</div>
+        <div><span id="seconds">0</span><br>Secs</div>
+    </div>
+    
+    <button class="button">🔒 Yen & Game</button>
+    
+    <div class="hearts">❤️ 🐾 ❤️ 🐾 ❤️</div>
+
+    <script>
+        function countdown(startDate) {
+            let start = new Date(startDate);
+            let now = new Date();
+            let diff = now - start;
+
+            let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            document.getElementById("years").innerText = years;
+            document.getElementById("months").innerText = months;
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        setInterval(() => countdown("2022-06-01"), 1000); // Change to your actual start date
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Love Lock</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #fce4ec;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            display: block;
+            margin: 20px auto;
+        }
+        #output {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 200px;
+            margin: 10px auto;
+        }
+        button {
+            padding: 15px;
+            border: none;
+            background: #f06292;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:active {
+            background: #e91e63;
+        }
+    </style>
+</head>
+<body>
+    <h2>Happy Valentine's Day</h2>
+    <img src="c:\Users\HP win10\Downloads\477006793_2500511726948163_579139035825010638_n.jpg" alt="Couple">
+    <div id="output">Enter Pin: </div>
+    <div class="keypad">
+        <button onclick="press(1)">1</button>
+        <button onclick="press(2)">2</button>
+        <button onclick="press(3)">3</button>
+        <button onclick="press(4)">4</button>
+        <button onclick="press(5)">5</button>
+        <button onclick="press(6)">6</button>
+        <button onclick="press(7)">7</button>
+        <button onclick="press(8)">8</button>
+        <button onclick="press(9)">9</button>
+        <button onclick="resetPin()">C</button>
+        <button onclick="press(0)">0</button>
+        <button onclick="checkPin()">OK</button>
+    </div>
+
+    <script>
+        let enteredPin = "";
+        const correctPin = "1234"; // Change this to your desired pin
+
+        function press(num) {
+            enteredPin += num;
+            document.getElementById("output").innerText = "Enter Pin: " + "*".repeat(enteredPin.length);
+        }
+
+        function resetPin() {
+            enteredPin = "";
+            document.getElementById("output").innerText = "Enter Pin: ";
+        }
+
+        function checkPin() {
+            if (enteredPin === correctPin) {
+                window.location.href = "countdown.html"; // Redirect to second page
+            } else {
+                alert("Wrong Pin!");
+                resetPin();
+            }
+        }
+    </script>
+</body>
+</html>
